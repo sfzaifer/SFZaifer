@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <title>SF Cipher Page</title>
+    <style>
+        body {
+            background-color: #0b0c10;
+            color: #66fcf1;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            border: 2px solid #45a29e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #66fcf1;
+            text-align: center;
+        }
+        input, button {
+            background-color: #1f2833;
+            color: #66fcf1;
+            border: 1px solid #66fcf1;
+            padding: 10px;
+            margin: 5px;
+            font-family: monospace;
+        }
+        button:hover {
+            background-color: #66fcf1;
+            color: #0b0c10;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>SF CIPHER SYSTEM</h2>
+        <p>Enter text to encode/decode:</p>
+        <input type="text" id="inputText" placeholder="Type here...">
+        <br>
+        <button onclick="cipherText()">Process</button>
+        <p id="outputText"></p>
+    </div>
+
+    <script>
+        function cipherText() {
+            let str = document.getElementById("inputText").value;
+            // Simple Caesar-like shift for demonstration
+            let result = str.split('').map(char => {
+                let code = char.charCodeAt(0);
+                return String.fromCharCode(code + 3);
+            }).join('');
+            document.getElementById("outputText").innerText = "Result: " + result;
+        }
+    </script>
+
+</body>
+</html>
